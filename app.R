@@ -18,7 +18,7 @@ ui <- fluidPage(
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
         sidebarPanel(
-            fileInput("myFile", "Sube imagen", accept = c('image/png', 'image/jpeg', 'image/gif'))),
+            fileInput("file", "Sube imagen", accept = c('image/png', 'image/jpeg', 'image/gif'))),
 
         # Show a plot of the generated distribution
         mainPanel(
@@ -29,6 +29,9 @@ ui <- fluidPage(
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
+    observeEvent(input$file, {
+        infile = input$file
+    })
 
     output$distPlot <- renderPlot({
         # generate bins based on input$bins from ui.R
