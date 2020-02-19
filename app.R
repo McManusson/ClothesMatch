@@ -31,6 +31,9 @@ ui <- fluidPage(
 server <- function(input, output) {
     observeEvent(input$file, {
         infile = input$file
+        if(is.null(infile))
+            return()
+        file.copy(infile$datapath, file.path(place, infile$name))
     })
 
     output$distPlot <- renderPlot({
