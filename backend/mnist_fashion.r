@@ -77,3 +77,6 @@ score <- model %>% evaluate(test_images, test_labels, verbose = 0)
 
 cat('Test loss:', score$loss, "\n")
 cat('Test accuracy:', score$acc, "\n")
+
+# guardar el modelo
+save_model_tf(model, "./models/mnist_fashion")
