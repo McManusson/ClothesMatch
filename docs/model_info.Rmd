@@ -1,0 +1,44 @@
+---
+title: "Modelos entrenados"
+author: "Zara"
+date: "22 February 2020"
+output: html_document
+---
+
+# Contexto
+
+La librería es TensorFlow y la base de datos, `mnist_fashion`. Abajo planteamos una tabla de los modelos entrenados, todos en las mismas condiciones, 60000 muestras y en cinco tandas. Hardware empleado: Intel Core i7-4790K, NVIDIA Geforce GTX970, 16 GB de RAM DDR3 y SSD Crucial de 1 TB. Sistema operativo empleado: Fedora Linux 30. Para más información, observar el apéndice segundo, donde se facilitan las variables del sistema y la información del mismo.
+
+# Comparativa de modelos
+
+|ID|Modelo|Pérdida|Precisión|
+|--|------|-------|---------|
+|1|`model`|0.3491605|0.8762|
+
+# Apéndice I
+
+## Modelo 1:
+
+```{r, eval=FALSE}
+model %>%
+     layer_flatten(input_shape = c(28, 28)) %>%
+     layer_dense(units = 128, activation = 'relu') %>%
+     layer_dense(units = 10, activation = 'softmax')
+```
+
+## Modelo 2
+
+# Apéndice II
+
+## Entorno del sistema
+
+```{r}
+Sys.getenv()
+```
+
+Sistema operativo usado:
+
+```{bash}
+uname -a
+```
+
