@@ -18,6 +18,11 @@ for cloth in clothes:
     else:
         json.append("Sorry")
 
+# writing file
+with open('./data/jsonclothes.txt', 'w') as f:
+    for item in json:
+        f.write('%s\n' % json)
+
 # data analysis
 # df = pd.read_json(json)
 # df.iloc[0]
