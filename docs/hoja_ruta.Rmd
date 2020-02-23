@@ -1,22 +1,35 @@
 ---
 title: '#ZaraChallenge: estructura y toma de decisiones de la arquitectura'
 author: "Equipo Uno"
-date: "18/2/2020"
-output: html_document
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  html_document:
+    theme: 'journal'
+    toc_depth: 4
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Base de datos Spark, fácil de escalar y paralelizar, además de que nos permitiría hacer unos trabajos básicos y tiene muy buena interfaz, `PySpark`.
+# Prólogo {-}
 
-# Ideas, de mayor a menor en sencillez
+Este documento describe detalladamente el paso a paso de la creación de la webapp para coincidir prendas y todo lo que involucra.
 
-- Buscamos una webapp intuitiva y sencilla de usar. El usuario sube una imagen o aporta un link
-- La webapp comparará la imagen aportada por el usuario y extraerá prendas parecidas. Se usará algo entendible, un porcentaje de similitud de mayor a menor.
-- Queremos una experiencia de usuario ágil, comprensible e intuitiva. Que de un primer vistazo sepas cuál es la ropa que más se asemeja.
+# Fundamentos
 
-Ideas de futuro:
+Para la webapp, hemos procedido en varias fases:
 
-Una idea de futuro es aplastantemente obvia. No sólo saca las prendas más parecidas y te da el nombre, sino que te da un menú para comprar tal prenda en las diversas tiendas del grupo INDITEX.
+1. Entrenamiento de modelos con TensorFlow.
+2. Recolección de datos.
+
+También hemos tenido varias fases intermedias como la elaboración de documentación para cons
+
+# Procesamiento de datos
+
+En una primera fase lo que hicimos fue construir un script en R con el paquete `rvest` (situado en `./backend/scrap.r`) con el propósito de peinar la web de Zara y hallar enlaces relativos a las colecciones de ropa. Posteriormente hicimos modificaciones hasta quedar con una lista de casi 13.000 prendas para la construcción
+
+# Futuro:
+
+La base de datos, hoy por hoy, se sirve del formato `csv`, posteriormente habrá que pensar en un formato como Apache Parquet.
