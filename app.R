@@ -7,11 +7,8 @@
 source("./backend/pkgs.r") # carga los paquetes y variables de entorno
 
 # Define UI for application that draws a histogram
-ui <- fluidPage(
-
-    # Application title
-    titlePanel("ClothesMatch #ZaraChallenge"),
-
+ui <- navbarPage("ClothesMatch #ZaraChallenge",
+    tabPanel("Match your clothes",
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
         sidebarPanel(
@@ -30,6 +27,7 @@ ui <- fluidPage(
            h2("Parecidos:")
         )
     )
+  )
 )
 
 # Define server logic required to draw a histogram
